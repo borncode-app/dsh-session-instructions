@@ -1,0 +1,12 @@
+# Inserts the session-instructions Host row. It keeps the instructions the user
+# writes in Settings → General → Instructions in the package's state.json, and
+# reads them at the top of the system prompt, so the deliverables that must not
+# be forgotten travel with every request.
+- insert:
+    - id: session-instructions
+      name: '@local/dsh-session-instructions'
+      config:
+        # Path the Web GUI reads and writes the instructions at.
+        endpoint: /plugins/session-instructions
+        # Largest instruction text accepted, in characters.
+        maxLength: 20000

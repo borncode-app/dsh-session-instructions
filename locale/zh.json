@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "会话指令",
+    "description": "在“设置 → 通用”中添加“指令”字段。你写下的内容会在开始任何工作之前被先阅读，因此不能忘记的交付要求会随每个请求一起传递。"
+  },
+  "instructions.title": "指令",
+  "instructions.description": "开始任何工作前先阅读这些指令。在这里写下不能忘记的交付要求——每个请求都会以它们开头。",
+  "instructions.placeholder": "例如：\n- 将最终报告以 PDF 形式交付到工作区。\n- 测试通过前不要结束。\n- 始终更新 README。",
+  "instructions.save": "保存",
+  "instructions.saving": "保存中…",
+  "instructions.saved": "已保存。每个请求现在都会以这些指令开头。",
+  "instructions.error": "无法保存指令。",
+  "instructions.empty": "尚未设置，系统不会添加任何内容。",
+  "instructions.hint": "Ctrl+Enter 保存。"
+}

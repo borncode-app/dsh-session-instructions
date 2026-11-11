@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Session instructions",
+    "description": "Adds an Instructions field to Settings → General. What you write there is read first, before any work starts, so the deliverables you must not forget travel with every request."
+  },
+  "instructions.title": "Instructions",
+  "instructions.description": "Read first, before any work starts. Write here the deliverables that must not be forgotten — every request begins with them.",
+  "instructions.placeholder": "For example:\n- Deliver the final report as a PDF in the workspace.\n- Do not finish until the tests pass.\n- Always update the README.",
+  "instructions.save": "Save",
+  "instructions.saving": "Saving…",
+  "instructions.saved": "Saved. Every request now starts with these instructions.",
+  "instructions.error": "Could not save the instructions.",
+  "instructions.empty": "Nothing is set, so no instructions are added.",
+  "instructions.hint": "Ctrl+Enter saves."
+}
