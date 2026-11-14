@@ -1,3 +1,25 @@
+> **This repository has moved into one monorepo.**
+>
+> The BornCode plugins — agent customization, desktop control, auto-continue,
+> auto-shutdown, browser use, session instructions, session sync, and the side
+> chat — now live in
+> **[`borncode-app/dsh-borncode`](https://github.com/borncode-app/dsh-borncode)**,
+> one repository with one Plugins entry.
+>
+> | this repo | new home |
+> |---|---|
+> | `dsh-agent-customizer` | `packages/dsh-agent-customizer` |
+> | `dsh-agent-desktop` | `packages/dsh-agent-desktop` |
+> | `dsh-auto-continue` | `packages/dsh-auto-continue` |
+> | `dsh-auto-shutdown` | `packages/dsh-auto-shutdown` |
+> | `dsh-browser-use` | `packages/dsh-browser-use` |
+> | `dsh-session-instructions` | `packages/dsh-session-instructions` |
+> | `dsh-session-sync` | `packages/dsh-session-sync` |
+> | `dsh-side-chat` | `packages/dsh-side-chat` |
+>
+> The code and its history are unchanged; only the repository is shared. Install
+> `dsh-borncode` instead of the individual bundles. This repository stays open
+> so the old links keep working.
 <div align="center">
   <img src="icon.svg" alt="" width="72" height="72">
   <h1>dsh-session-instructions</h1>
@@ -15,20 +37,20 @@
 ## What it does
 
 "If you produce a document, always add the file card." "Always answer in Thai." "Never push to main."
-The kind of instruction you state once and then have to repeat — because it lived in one message that fell out of
+The kind of instruction you state once and then have to repeat â€” because it lived in one message that fell out of
 the context window.
 
-This plugin gives those rules a permanent home: a text box in **Settings → General → Instructions**. Whatever is in
+This plugin gives those rules a permanent home: a text box in **Settings â†’ General â†’ Instructions**. Whatever is in
 it is read at the **top of the system prompt**, before any work starts, on every request.
 
 ## Features
 
-- **Always first** — the text is placed at the top of the system prompt, not appended after a long conversation.
-- **Editable without code changes** — the GUI writes it; no patch file, no restart to change the wording.
-- **Persisted, not ephemeral** — kept in the plugin's `state.json`, so upgrades and `git pull` leave it alone.
-- **Bounded** — `maxLength` (20 000 characters by default) rejects a runaway paste before it costs tokens on
+- **Always first** â€” the text is placed at the top of the system prompt, not appended after a long conversation.
+- **Editable without code changes** â€” the GUI writes it; no patch file, no restart to change the wording.
+- **Persisted, not ephemeral** â€” kept in the plugin's `state.json`, so upgrades and `git pull` leave it alone.
+- **Bounded** â€” `maxLength` (20 000 characters by default) rejects a runaway paste before it costs tokens on
   every turn.
-- **Localized UI** — English, Thai, and Chinese in `locale/`.
+- **Localized UI** â€” English, Thai, and Chinese in `locale/`.
 - No tools, no network, no timers: one endpoint and one prompt contribution.
 
 ## Requirements
@@ -51,7 +73,7 @@ Then:
 plugin_manager install_bundle target=C:\path\to\dsh-session-instructions
 ```
 
-Restart once, open **Settings → General → Instructions**, and write the rules you are tired of repeating.
+Restart once, open **Settings â†’ General â†’ Instructions**, and write the rules you are tired of repeating.
 
 ## Configuration
 
@@ -63,14 +85,14 @@ Restart once, open **Settings → General → Instructions**, and write the rule
 ## How it works
 
 ```
-Settings → General → Instructions
-            │  PUT
-            ▼
-   state.json  ──read at the top of every turn──▶  system prompt
+Settings â†’ General â†’ Instructions
+            â”‚  PUT
+            â–¼
+   state.json  â”€â”€read at the top of every turnâ”€â”€â–¶  system prompt
 ```
 
 Because it rides the system prompt rather than a user message, it does not compete with the conversation for
-recency — and it is not the first thing dropped when context gets tight.
+recency â€” and it is not the first thing dropped when context gets tight.
 
 > Keep it short and absolute. A standing instruction is billed on every single request; ten paragraphs of
 > background belong in a `SKILL.md`, not here.
@@ -86,18 +108,18 @@ recency — and it is not the first thing dropped when context gets tight.
 | `icon.svg` | plugin icon |
 | `test/smoke.mjs` | the check used while building it |
 
-## ภาษาไทย
+## à¸ à¸²à¸©à¸²à¹„à¸—à¸¢
 
-ที่สำหรับเขียน **คำสั่งถาวร** ที่ต้องติดไปกับทุกคำขอ — เช่น "ทำเอกสารต้องแนบไฟล์ทุกครั้ง", "ตอบเป็นภาษาไทย",
-"ห้าม push ขึ้น main" — เขียนครั้งเดียวที่ **Settings → General → Instructions**
+à¸—à¸µà¹ˆà¸ªà¸³à¸«à¸£à¸±à¸šà¹€à¸‚à¸µà¸¢à¸™ **à¸„à¸³à¸ªà¸±à¹ˆà¸‡à¸–à¸²à¸§à¸£** à¸—à¸µà¹ˆà¸•à¹‰à¸­à¸‡à¸•à¸´à¸”à¹„à¸›à¸à¸±à¸šà¸—à¸¸à¸à¸„à¸³à¸‚à¸­ â€” à¹€à¸Šà¹ˆà¸™ "à¸—à¸³à¹€à¸­à¸à¸ªà¸²à¸£à¸•à¹‰à¸­à¸‡à¹à¸™à¸šà¹„à¸Ÿà¸¥à¹Œà¸—à¸¸à¸à¸„à¸£à¸±à¹‰à¸‡", "à¸•à¸­à¸šà¹€à¸›à¹‡à¸™à¸ à¸²à¸©à¸²à¹„à¸—à¸¢",
+"à¸«à¹‰à¸²à¸¡ push à¸‚à¸¶à¹‰à¸™ main" â€” à¹€à¸‚à¸µà¸¢à¸™à¸„à¸£à¸±à¹‰à¸‡à¹€à¸”à¸µà¸¢à¸§à¸—à¸µà¹ˆ **Settings â†’ General â†’ Instructions**
 
-- ข้อความถูกอ่านไว้ที่ **หัว system prompt** ก่อนเริ่มงานทุกครั้ง (ไม่ใช่ต่อท้ายบทสนทนายาว ๆ)
-- เก็บใน `state.json` → อัปเกรด DSH หรือ `git pull` แล้วไม่หาย
-- จำกัดความยาวด้วย `maxLength` (20,000 ตัวอักษร) กันการวางยาว ๆ ที่จะถูกคิดเงินทุกเทิร์น
-- ไม่มี tool ไม่มีเน็ตเวิร์ก ไม่มี timer
+- à¸‚à¹‰à¸­à¸„à¸§à¸²à¸¡à¸–à¸¹à¸à¸­à¹ˆà¸²à¸™à¹„à¸§à¹‰à¸—à¸µà¹ˆ **à¸«à¸±à¸§ system prompt** à¸à¹ˆà¸­à¸™à¹€à¸£à¸´à¹ˆà¸¡à¸‡à¸²à¸™à¸—à¸¸à¸à¸„à¸£à¸±à¹‰à¸‡ (à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆà¸•à¹ˆà¸­à¸—à¹‰à¸²à¸¢à¸šà¸—à¸ªà¸™à¸—à¸™à¸²à¸¢à¸²à¸§ à¹†)
+- à¹€à¸à¹‡à¸šà¹ƒà¸™ `state.json` â†’ à¸­à¸±à¸›à¹€à¸à¸£à¸” DSH à¸«à¸£à¸·à¸­ `git pull` à¹à¸¥à¹‰à¸§à¹„à¸¡à¹ˆà¸«à¸²à¸¢
+- à¸ˆà¸³à¸à¸±à¸”à¸„à¸§à¸²à¸¡à¸¢à¸²à¸§à¸”à¹‰à¸§à¸¢ `maxLength` (20,000 à¸•à¸±à¸§à¸­à¸±à¸à¸©à¸£) à¸à¸±à¸™à¸à¸²à¸£à¸§à¸²à¸‡à¸¢à¸²à¸§ à¹† à¸—à¸µà¹ˆà¸ˆà¸°à¸–à¸¹à¸à¸„à¸´à¸”à¹€à¸‡à¸´à¸™à¸—à¸¸à¸à¹€à¸—à¸´à¸£à¹Œà¸™
+- à¹„à¸¡à¹ˆà¸¡à¸µ tool à¹„à¸¡à¹ˆà¸¡à¸µà¹€à¸™à¹‡à¸•à¹€à¸§à¸´à¸£à¹Œà¸ à¹„à¸¡à¹ˆà¸¡à¸µ timer
 
-> เขียนให้สั้นและเป็นคำสั่งชัด ๆ — ข้อความนี้ถูกคิด token ทุกครั้งที่ส่ง ถ้าต้องการเนื้อหายาว ๆ ให้ไปไว้ใน `SKILL.md`
+> à¹€à¸‚à¸µà¸¢à¸™à¹ƒà¸«à¹‰à¸ªà¸±à¹‰à¸™à¹à¸¥à¸°à¹€à¸›à¹‡à¸™à¸„à¸³à¸ªà¸±à¹ˆà¸‡à¸Šà¸±à¸” à¹† â€” à¸‚à¹‰à¸­à¸„à¸§à¸²à¸¡à¸™à¸µà¹‰à¸–à¸¹à¸à¸„à¸´à¸” token à¸—à¸¸à¸à¸„à¸£à¸±à¹‰à¸‡à¸—à¸µà¹ˆà¸ªà¹ˆà¸‡ à¸–à¹‰à¸²à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¹€à¸™à¸·à¹‰à¸­à¸«à¸²à¸¢à¸²à¸§ à¹† à¹ƒà¸«à¹‰à¹„à¸›à¹„à¸§à¹‰à¹ƒà¸™ `SKILL.md`
 
 ## License
 
-[MIT](LICENSE) © 2026 BornCode
+[MIT](LICENSE) Â© 2026 BornCode
